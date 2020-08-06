@@ -1,0 +1,33 @@
+<br>
+<br>
+<h1 class="text-center">Partage ton Gossip</h1>
+
+<% if @problem %>
+  <div class="alert alert-danger" role="alert">
+    <p>Nous n'avons pas réussi à créer le potin pour la (ou les) raison(s) suivante(s) :<p>
+    <ul>
+    <% @gossip.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+
+    <% end %>
+  </ul>
+  </div>
+
+<% end %>
+
+<h5 class="text-center">Renseigne les différents champs ci-dessous pour partager ton Gossip</h5>
+<br>
+<div class="container text-left">
+<form action="<%= gossips_path %>" method="POST">
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+<br>
+<div class="form-group">
+    <label for="title">Titre du Gossip</label>
+    <input type="text" class="form-control" name='title' placeholder="Titre du Gossip">
+    <br>
+    <label for="content">Ecris ton Gossip</label>
+    <textarea class="form-control" name='content' rows="3"></textarea>
+  </div>
+  <button type="submit" class="btn btn-dark">Publier le Gossip</button>
+</form>
+</div>

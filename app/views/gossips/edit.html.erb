@@ -1,0 +1,41 @@
+<h1>Gossips#edit</h1>
+
+
+<% if @invalid %>
+  <div class="alert alert-danger" role="alert">
+    <p>Nous n'avons pas réussi à modifier le potin pour la (ou les) raison(s) suivante(s) :<p>
+    <ul>
+    <% @gossip.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+
+    <% end %>
+    </ul>
+    </div>
+    
+  <% end %>
+
+
+<br>
+<br>
+<h1 class="text-center">Modifie ton Gossip</h1>
+
+
+<h5 class="text-center">Renseigne les différents champs ci-dessous pour modi ton Gossip</h5>
+<br>
+<div class="container text-left">
+<%= form_for @gossip do |f| %>
+
+<div class="form-group">
+    <label>Titre du Gossip</label>
+    <%= f.text_field :title, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <label>Contenu du Gossip</label>
+    <%= f.text_field :content, class: 'form-control' %>
+</div>
+<div class="form-group">
+    <button type="submit" class="btn btn-dark">Enregistrer la modification du Gossip</button>
+</div>
+    
+
+<% end %>

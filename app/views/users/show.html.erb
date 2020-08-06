@@ -1,0 +1,14 @@
+<div class="card text-center">
+  <div class="card-header">
+  <h5><%= @user.first_name %> <%= @user.last_name %></h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @user.description %></p>
+    <p class="card-text">Email : <%= @user.email %></p>
+    <p class="card-text">Age : <%= @user.age %> ans</p>
+    <p class="card-text">Ville :  <%=link_to "#{@user.city.name}", city_path(:id => @user.city.id), :class => "card-text" %></p>
+
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>

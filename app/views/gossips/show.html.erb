@@ -1,0 +1,56 @@
+<body>
+
+<div class="card text-center">
+    <div class="card-header">
+        <h5><%= @gossip.title %></h5>
+    </div>
+    <div class="card-body">
+        <p class="card-text"><%= @gossip.content %></p>
+        <p class="card-text">Auteur : <%=link_to "#{@gossip.user.first_name}", user_path(:id => @gossip.user.id), :class => "card-text" %></p>
+        <p class="card-text">Ville :  <%=link_to "#{@gossip.user.city.name}", city_path(:id => @gossip.user.city.id), :class => "card-text" %></p>
+    </div>
+        <div class="card-footer text-muted">
+            <%= @gossip.created_at %>
+        </div>
+    </div>
+</div>
+<div class="container text-center">
+    <a href="<%= edit_gossip_path(:id => @gossip.id) %>" class="btn btn-outline-dark">Mettre à jour</a>
+    <a href="<%= gossip_path(:id => @gossip.id) %>" class="btn btn-outline-dark" data-confirm="T'es sûr?" data-method="DELETE">Supprimer ce gossip</a>
+</div>
+
+<br>
+<br>
+
+<h6 class="mt-2 text-center">Commentaires</h6>
+<% Comment.where(gossip_id: @id).each_with_index do |comment, index| %>
+  <div class="card pt-2 pl-2">
+  <h7>Blabla</h7>
+      <p><%= @comment.content %></p></br>
+      <p>de: <%= link_to comment.user.first_name %></p>
+
+  </div>
+  <% end %>
+  
+  <% if logged_in? %>
+  <div class='mt-3'>
+   <h6>Poster un commentaire:</h6>
+   <form action= <%= gossip_comments_path(:gossip_id => @gossip.id) %> method="post">
+       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+       <input style="height:100px" type="text" name="content" class="form-control">
+       <input type="submit" value="Submit" class="btn btn-outline-dark">
+   </form>
+ </div>
+ <% end %>
+
+  <br>
+  <br>
+
+
+
+
+<br>
+<br>
+
+
+  </body>

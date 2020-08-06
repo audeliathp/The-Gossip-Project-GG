@@ -1,0 +1,22 @@
+
+
+
+<main role="main">
+    <div class="jumbotron">
+        <div class="container">
+            <h2 class="display-3"><%= params[:city].name %></h2>
+                <p>Découvre tous les gossips de la ville !</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <% @gossips.each do |gossip| %>
+            <div class="col-sm-6">
+                <h3><%= gossip.title %></h3>
+                <p><%= link_to "Lire les détails", gossip_path(:id => gossip.id), :class =>"btn btn-primary" %></p>
+            </div>
+        <% end %>
+        </div>
+    </div>
+</main>
