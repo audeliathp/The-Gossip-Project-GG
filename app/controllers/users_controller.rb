@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       p "user created"
 
       flash[:success] = "the account was succesfully created"
-      redirect_to :index
+      log_in(@new_person)
+      redirect_to index_path
     
     else
       @problem = true 
