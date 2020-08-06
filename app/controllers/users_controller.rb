@@ -6,11 +6,12 @@ class UsersController < ApplicationController
 
   def new
     @new_person = User.new
+    @city = City.all.order(:name)
   end
 
 
   def create
-    @new_person = User.new(first_name: params[:user][:first_name], last_name: params[:user][:last_name], age: params[:user][:age], email: params[:user][:email], password: params[:user][:password], description: params[:user][:description])
+    @new_person = User.new(first_name: params[:user][:first_name], last_name: params[:user][:last_name], age: params[:user][:age], email: params[:user][:email], city_id: params[:user][:city_id], password: params[:user][:password], description: params[:user][:description])
  
     p "==================================================================================================="
     if @new_person.save

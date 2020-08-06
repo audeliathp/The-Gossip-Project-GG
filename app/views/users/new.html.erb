@@ -33,11 +33,16 @@
         <%= f.text_field :last_name %>  
       </div>
 
+    <div class="form-row">
       <div class="col">
         <%= f.label :Age %><br />  
-        <%= f.text_field :age %>  
+        <%= f.text_field :age %> 
       </div>
-    </div>  
+      <div class="form-group">
+      <%= f.label :city %><br />
+      <%= f.select  "city_id", options_from_collection_for_select(City.all, "id","name"), class: "form-control" %>
+      </div>
+    </div>
 
     <div class="form-row">
       <div class="col">
