@@ -1,11 +1,10 @@
 <br>
 <br>
-<br>
-<br>
+
 
 <% if @problem %>
   <div class="alert alert-danger" role="alert">
-    <p>Nous n avons pas réussi à créer ton compte pour la (ou les) raison(s) suivante(s) :<p>
+    <p>Nous n'avons pas réussi à créer ton compte pour la (ou les) raison(s) suivante(s) :<p>
     <ul>
     <% @new_person.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -19,11 +18,11 @@
 <div class="mainContent">
   <h1 class="text-center">Rejoins The Gossip Project</h1>
   <h5 class="text-center">Renseigne les différents champs ci-dessous pour tinscrire à The Gossip Project</h5>
-    <p class="text-center">Déjà inscrit? Connecte-toi  <a href="">ici.</a></p>
+    <p class="text-center">Déjà inscrit? Connecte-toi <%= link_to "ici", new_session_path %></p>
     <div class="container text-left">
     <%= form_for @new_person do |f| %>
     
-    <div class="form-row">
+    <div class="form-group row">
       <div class="col">
         <%= f.label :Prénom %><br />  
         <%= f.text_field :first_name %>  
@@ -32,38 +31,41 @@
         <%= f.label :Nom %><br />  
         <%= f.text_field :last_name %>  
       </div>
-
+    </div>  
+    <br>
+    <br>
     <div class="form-row">
       <div class="col">
         <%= f.label :Age %><br />  
         <%= f.text_field :age %> 
       </div>
-      <div class="form-group">
-      <%= f.label :city %><br />
-      <%= f.select  "city_id", options_from_collection_for_select(City.all, "id","name"), class: "form-control" %>
+      <div class="col">
+        <%= f.label :city %><br />
+        <%= f.select  "city_id", options_from_collection_for_select(City.all, "id","name"), class: "form-control" %>
+      </div>
+      <div class="col">
+        <%= f.label :Description %><br />  
+        <%= f.text_area :description %>
       </div>
     </div>
-
+    <br>
+    <br>
     <div class="form-row">
       <div class="col">
         <%= f.label :Email %><br />  
         <%= f.text_field :email %>  
       </div>
-
       <div class="col">
         <%= f.label :mot_de_passe %><br />  
         <%= f.password_field :password %>  
       </div>
-
       <div class="col">
         <%= f.label :Confirmation_du_mot_de_passe %><br />  
         <%= f.password_field :password %>  
       </div>
     </div>
-      <div class="form-group">
-        <%= f.label :Description %><br />  
-        <%= f.text_area :description %>
-      </div>
+    <br>
+    <br>
       <button type="submit" class="btn btn-danger align-center">Valider</button>
     </div>
     

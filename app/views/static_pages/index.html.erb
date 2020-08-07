@@ -3,7 +3,6 @@
 
 <div text-center>
 <button type text-center="button" class="btn btn-outline-dark btn-lg btn-block"><%= link_to "Ajouter un Gossip", new_gossip_path %></button>
-
 </div>
 
 <br>
@@ -11,18 +10,16 @@
 
 <h5 text-center>Derniers Gossips publiés</h5>
 
-<div class="row ">
+<div class="row">
 <% @gossips.each_with_index do |gossip| %>
   <div class="col-sm-6">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title"><%= gossip.title %></h5>
         <p class="card-text"><%= gossip.user.first_name%> <%= gossip.user.last_name%></p>
-        <%=link_to "Voir le Gossip", gossip_path(:id => gossip.id), :class => "btn btn-primary" %>
+        <%=link_to "Voir ce Gossip", gossip_path(:id => gossip.id), :class => "btn btn-primary" %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
-
-

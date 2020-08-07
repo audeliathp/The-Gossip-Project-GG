@@ -13,5 +13,12 @@ module SessionsHelper
     else 
       true
     end
+
+    def is_owner?(id)
+      if current_user.id == id
+        return true
+      end
+    end
   end
+
 end

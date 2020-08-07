@@ -14,10 +14,15 @@
         </div>
     </div>
 </div>
+
+<% if (@gossip.user_id) == current_user.id %>
+
 <div class="container text-center">
     <a href="<%= edit_gossip_path(:id => @gossip.id) %>" class="btn btn-outline-dark">Mettre à jour</a>
     <a href="<%= gossip_path(:id => @gossip.id) %>" class="btn btn-outline-dark" data-confirm="T'es sûr?" data-method="DELETE">Supprimer ce gossip</a>
 </div>
+
+<% end %>
 
 <br>
 <br>

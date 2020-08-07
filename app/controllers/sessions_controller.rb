@@ -14,7 +14,7 @@ require 'bcrypt'
   
         if user && user.authenticate(params[:password])
           session[:user_id] = user.id
-          flash[:success] = " Bonjour #{user.first_name}, tu es bien connecté :slight_smile: "
+          flash[:success] = " Bonjour #{user.first_name}, tu es bien connecté(e) au Gossip Project"
           redirect_to :controller => 'static_pages', :action => 'index'
         else
           @problem = true
