@@ -28,12 +28,10 @@
 <br>
 
 <h6 class="mt-2 text-center">Commentaires</h6>
-<% Comment.where(gossip_id: @id).each_with_index do |comment, index| %>
+<% @comments.each do |comment| %>
   <div class="card pt-2 pl-2">
-  <h7>Blabla</h7>
-      <p><%= @comment.content %></p></br>
-      <p>de: <%= link_to comment.user.first_name %></p>
-
+      <h7><%= comment.content %></h7>
+      <p>de: <%= link_to "#{comment.user.first_name}", user_path(:id => comment.user.id) %></p>
   </div>
   <% end %>
   

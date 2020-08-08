@@ -69,10 +69,11 @@ end
 
 puts "5 new messages"
 
-20.times do
+15.times do
     comment = Comment.create!(
         content: Faker::Quote.yoda,
         gossip_id: Gossip.all.sample.id,
         user_id: User.all.sample.id
     )
+
 end

@@ -1,0 +1,43 @@
+Skip to content
+Orane31
+/
+GG_ameliorations
+Code
+Issues
+Pull requests
+Actions
+Projects
+More
+GG_ameliorations/app/views/comments/show.html.erb
+@Orane31
+Orane31 Almost there
+ History
+ 1 contributor
+26 lines (23 sloc)  1.01 KB
+  
+
+<div class="container">
+<div class ='col sm-6'>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @comment.user.first_name %></h5>
+      <p class="card-title"> <%= @comment.content %></p>
+      <%= link_to 'Editer ce commentaire', edit_gossip_comment_path(:gossip_id => Gossip.find(params[:gossip_id]), :id => Comment.find(params[:id])), class: 'btn btn-outline-danger btn-sm' %> 
+      <%= link_to 'Revenir en arrière', gossip_path(:id => Gossip.find(params[:gossip_id])), class: 'btn btn-outline-secondary btn-sm' %>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="card text-center">
+  <div class="card-header">
+  <h5><%= @comment.user.first_name %></h5>
+  </div>
+  <div class="card-body">
+    <p class="card-text"><%= @comment.content %></p>
+    <%= link_to 'Modifier le commentaire', edit_gossip_comment_path(:gossip_id => Gossip.find(params[:gossip_id]), :id => Comment.find(params[:id])), class: 'btn btn-outline-danger btn-sm' %>
+  </div>
+  <div class="card-footer text-muted">
+  </div>
+</div>

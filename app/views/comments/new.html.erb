@@ -1,0 +1,30 @@
+<% if @nocomment %>
+  <div class="alert alert-danger" role="alert">
+    <p>Ton commentaire n a pas été validé pour la (ou les) raison(s) suivante(s) :<p>
+    <ul>
+    <% @comment.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  </div>
+  
+<% end %>
+
+
+<br>
+<br>
+
+
+<h5 class="text-center">Nouveau commentaire</h5>
+<br>
+  <div class="container text-left">
+      <form action="<%= gossip_comments_path %>" method="POST">
+      <input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >
+
+        <div class="form-group">
+
+          <textarea class="form-control" rows="3" name='content' placeholder="Tape ton commentaire ici"></textarea>
+        </div>
+        <button type="submit" class="btn btn-dark">Publier le commentaire</button>
+      </form>
+  </div>
