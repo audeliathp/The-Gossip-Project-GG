@@ -31,7 +31,8 @@ puts "city ok"
         description: Faker::Lorem.paragraph(sentence_count: 2),
         email: Faker::Internet.email,
         age: rand(18..70),
-        city_id: City.all.sample.id
+        city_id: City.all.sample.id,
+        password: Faker::Lorem.characters(number: 10)
         )
 end
 
